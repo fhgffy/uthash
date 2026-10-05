@@ -380,12 +380,7 @@ UTSTRING_UNUSED static long utstring_findR(
     {
         V_StartPosition = P_StartPosition;
     }
-    /* 2026-10-04：反向搜索只覆盖逻辑内容，排除自动追加的终止符。 */
     V_HaystackLen = V_StartPosition + 1;
-    if (V_HaystackLen > 0 && (size_t)V_HaystackLen > s->i)
-    {
-        V_HaystackLen = (long)s->i;
-    }
     if ( (V_HaystackLen >= (long) P_NeedleLen) && (P_NeedleLen > 0) )
     {
         V_KMP_Table = (long *)malloc(sizeof(long) * (P_NeedleLen + 1));
